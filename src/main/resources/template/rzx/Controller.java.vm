@@ -1,0 +1,81 @@
+package ${actionPath};
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.stereotype.Controller;
+import com.meizu.game.entity.model.OceanResponseEntity;
+import ${entityPath}.${className};
+import ${servicePath}.${className}Service;
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Controller
+@RequestMapping("/console/${controllerPath}")
+public class ${className}Action {
+
+    @Autowired
+    private ${className}Service service;
+
+    /**
+    * 查询列表
+    */
+    @RequestMapping(value = "/query")
+    @ResponseBody
+    public OceanResponseEntity query(${className} ${classname}){
+        return new OceanResponseEntity(service.query(${classname}));
+    }
+
+    /**
+    * 查询总数
+    */
+    @RequestMapping(value = "/count")
+    @ResponseBody
+    public OceanResponseEntity count(${className} ${classname}){
+        return new OceanResponseEntity(service.count(${classname}));
+    }
+
+    /**
+    * 修改
+    */
+    @RequestMapping(value = "/update")
+    @ResponseBody
+    public OceanResponseEntity update(${className} ${classname}){
+        service.update(${classname});
+        return new OceanResponseEntity();
+    }
+
+    /**
+    * 新增
+    */
+    @RequestMapping(value = "/add")
+    @ResponseBody
+    public OceanResponseEntity add(${className} ${classname}){
+        service.save(${classname});
+        return new OceanResponseEntity();
+    }
+
+    /**
+    * 获取详情
+    */
+    @RequestMapping(value = "/info")
+    @ResponseBody
+    public OceanResponseEntity info(Long id){
+        return new OceanResponseEntity(service.getDetail(id));
+    }
+
+    /**
+    * 删除
+    */
+    @RequestMapping(value = "/delete")
+    @ResponseBody
+    public OceanResponseEntity delete(Long id){
+        service.delete(id);
+        return new OceanResponseEntity();
+    }
+
+}

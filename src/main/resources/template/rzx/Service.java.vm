@@ -1,0 +1,47 @@
+package ${servicePath};
+
+import ${daoPath}.${className}Dao;
+import ${entityPath}.${className};
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+
+/**
+ * ${comments}
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Service
+public class ${className}Service {
+
+    @Autowired
+    private ${className}Dao dao;
+
+    public List<${className}> query(${className} ${classname}) {
+        return dao.query(${classname});
+    }
+
+    public int count($className ${classname}){
+        return dao.count(${classname});
+    }
+
+    public int update(${className} ${classname}) {
+        return dao.update(${classname});
+    }
+
+    public int save(${className} ${classname}){
+        return dao.save(${classname});
+    }
+
+    public ${className} getDetail(Long id) {
+        return dao.getDetail(id);
+    }
+
+    public int delete(Long id) {
+        return dao.delete(id);
+    }
+
+
+}
